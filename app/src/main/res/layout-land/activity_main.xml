@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/day">
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:alignmentMode="alignBounds"
+        android:columnCount="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:width="0dp"
+            android:onClick="onClickAstro"
+            android:text="@string/start"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:width="0dp"
+            android:onClick="onClickSettings"
+            android:text="@string/settings"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+
+    </GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

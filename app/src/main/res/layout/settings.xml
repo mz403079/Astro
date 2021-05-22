@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/day"
+    >
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="50dp"
+        android:alignmentMode="alignBounds"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.6">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="bottom"
+            android:width="0dp"
+            android:text="@string/latitude"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <EditText
+            android:id="@+id/latitude"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="bottom"
+            android:width="0dp"
+            android:autofillHints="latitude"
+            android:contentDescription="awe"
+            android:ems="10"
+            android:textSize="@dimen/textSizeMedium"
+            android:inputType="numberDecimal|numberSigned"
+            android:textColor="@color/white" />
+
+        <TextView
+
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="bottom"
+            android:width="0dp"
+            android:text="@string/longitude"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintBottom_toTopOf="@+id/longitude" />
+
+
+        <EditText
+            android:id="@+id/longitude"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="bottom"
+            android:width="0dp"
+            android:textSize="@dimen/textSizeMedium"
+            android:autofillHints="longitude"
+            android:ems="10"
+            android:inputType="numberDecimal|numberSigned"
+            android:textColor="@color/white" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="bottom"
+            android:width="0dp"
+            android:gravity="bottom"
+            android:text="@string/refresh_rate"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:theme="@style/spinnerItemStyle"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="bottom"
+            android:width="0dp"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="150dp"
+        android:layout_height="65dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_marginTop="25dp"
+        android:width="0dp"
+        android:onClick="onClickSave"
+        android:text="@string/save"
+        android:textSize="@dimen/textSizeMedium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

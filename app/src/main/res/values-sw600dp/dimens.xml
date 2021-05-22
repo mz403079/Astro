@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="isTablet">true</bool>
+    <dimen name="textSizeMini">16sp</dimen>
+    <dimen name="textSizeSmall">22sp</dimen>
+    <dimen name="textSizeMedium">28sp</dimen>
+    <dimen name="textSizeBig">32sp</dimen>
+    <dimen name="textSizeVeryLarge">32sp</dimen>
+</resources>

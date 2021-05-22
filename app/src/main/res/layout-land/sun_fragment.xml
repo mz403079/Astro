@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/day">
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:alignmentMode="alignBounds"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="1"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:width="0dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowSpan="3"
+            android:layout_rowWeight="3"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:contentDescription="@string/sun"
+            android:src="@drawable/sun" />
+
+        <TextClock
+            android:id="@+id/time"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center"
+            android:format12Hour="hh:mm:ss a"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeVeryLarge" />
+        <TextView
+            android:id="@+id/latLong"
+            android:width="0dp"
+            android:layout_rowSpan="2"
+            android:layout_rowWeight="2"
+
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center"
+            android:text="@string/latitude_and_longitude"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeSmall" />
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/sunrise_time"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/sunrise_azimuth"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/sunriseTime"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal"
+            android:text="11:49:51"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <TextView
+            android:id="@+id/sunriseAzimuth"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal"
+            android:text="11:49:51"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/sunset_time"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/sunset_azimuth"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/sunsetTime"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal"
+            android:text="11:49:51"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <TextView
+            android:id="@+id/sunsetAzimuth"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/dusk"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/twilight"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeSmall" />
+
+        <TextView
+            android:id="@+id/dusk"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal"
+            android:text="11:49:51"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium" />
+
+        <TextView
+            android:id="@+id/twilight"
+            android:width="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:gravity="center_horizontal"
+            android:text="11:49:51"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium" />
+
+    </GridLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
