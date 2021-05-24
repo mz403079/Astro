@@ -45,7 +45,7 @@ public class ViewPager extends AppCompatActivity {
 
             adapter.addFragment(SunFragment.getInstance(), "SUN");
             adapter.addFragment(MoonFragment.getInstance(), "MOON");
-//            adapter.addFragment(SunFragment.getInstance(), "SUN");
+            adapter.addFragment(BaseWeatherFragment.getInstance(), "WEATHER");
 //            adapter.addFragment(MoonFragment.getInstance(), "MOON");
 //            adapter.addFragment(SunFragment.getInstance(), "SUN");
 //            adapter.addFragment(MoonFragment.getInstance(), "MOON");
@@ -59,7 +59,8 @@ public class ViewPager extends AppCompatActivity {
                         }
                     }).attach();
             for (int i = 0; i < adapter.getItemCount(); i++) {
-                fragments.add((AstroFragment) adapter.getFragment(i));
+                if(adapter.getFragment(i) instanceof AstroFragment)
+                    fragments.add((AstroFragment) adapter.getFragment(i));
             }
         }
         updateData();

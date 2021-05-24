@@ -16,8 +16,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.astrocalculator.AstroCalculator;
 import com.astrocalculator.AstroDateTime;
+import com.example.myapplication.model.ConsolidatedWeather;
+import com.example.myapplication.model.Forecast;
+import com.example.myapplication.model.Location;
 
 import java.util.Calendar;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Settings extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     TextView tvLongitude;
@@ -26,9 +36,17 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     boolean showDefault = true;
     int refreshRate;
     int refreshRatePosition;
+    private GitHubService apiService;
+    public static final String BASE_URL = "https://www.metaweather.com/api/";
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        apiService = retrofit.create(GitHubService.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
         tvLatitude = findViewById(R.id.latitude);
@@ -47,8 +65,8 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
         spinner.setOnItemSelectedListener(this);
         tvLatitude.setText(latitude);
         tvLongitude.setText(longitude);
-        if(savedInstanceState != null) {
-            showDefault = (savedInstanceState.getBoolean("default",false));
+        if (savedInstanceState != null) {
+            showDefault = (savedInstanceState.getBoolean("default", false));
         }
     }
 
@@ -68,6 +86,41 @@ public class Settings extends AppCompatActivity implements AdapterView.OnItemSel
     }
 
     public void onClickSave(View v) {
+        Call<List<Location>> call = apiService.getWoeid();
+        call.enqueue(new Callback<List<Location>>() {
+            @Override
+            public void onResponse(Call<List<Location>> call, Response<List<Location>> response) {
+                System.out.println("DONE");
+                int statusCode = response.code();
+                List<Location> user = response.body();
+
+                Call<Forecast> forecastCall = apiService.getForecast(user.get(0).getWoeid());
+                forecastCall.enqueue(new Callback<Forecast>() {
+                    @Override
+                    public void onResponse(Call<Forecast> call, Response<Forecast> response) {
+                        System.out.println("DONE");
+                        Forecast forecast = response.body();
+
+                        for (ConsolidatedWeather cw : forecast.getConsolidatedWeather()) {
+                            System.out.println(cw.getApplicableDate() + cw.getTheTemp());
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Forecast> call, Throwable t) {
+                        System.out.println(t.getMessage());
+
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<List<Location>> call, Throwable t) {
+                System.out.println(t.getMessage());
+
+            }
+        });
         if (!validateInput()) {
             Toast.makeText(getApplicationContext(), "Wrong input!", Toast.LENGTH_SHORT).show();
             return;
